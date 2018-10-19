@@ -1,0 +1,38 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET     /                                       Application.index
+
+# UsuariosEventos
+GET		/inscrever/{id}							UsuariosEventos.getEventosbyUsuario
+POST     /inscrever/{id_user}/{id_evento}       UsuariosEventos.inscreverEmEvento
+
+# Eventos
+GET		/eventos							    Eventos.getAllEventos
+POST    /eventos                                Eventos.postEvento
+GET     /evento/{id_evento}                     Eventos.getEvento
+GET     /eventos/org/{id_org}                   Eventos.getEventosOrg
+
+# Usuarios
+GET     /usuario/{id_usuario}                   Usuarios.getUsuario
+POST    /usuario                                Usuarios.postUsuario
+
+# Organizacoes
+GET     /organizacao/{id_organizacao}           Organizacoes.getOrganizacao
+POST    /organizacao                            Organizacoes.postOrganizacao
+
+# Login
+POST     /login                                  Login.login
+POST     /loginUser                              Login.loginUser
+POST     /loginOrg                               Login.loginOrg
+
+# Ignore favicon requests
+#GET     /favicon.ico                            404
+
+# Map static resources from the /app/public folder to the /public path
+#GET     /public/                                staticDir:public
+
+# Catch all
+#*       /{controller}/{action}                  {controller}.{action}
