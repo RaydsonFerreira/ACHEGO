@@ -3,36 +3,33 @@
 # ~~~~
 
 # Home page
-GET     /                                       Application.index
-
-# UsuariosEventos
-GET		/inscrever/{id}							UsuariosEventos.getEventosbyUsuario
-POST     /inscrever/{id_user}/{id_evento}       UsuariosEventos.inscreverEmEvento
-
-# Eventos
-GET		/eventos							    Eventos.getAllEventos
-POST    /eventos                                Eventos.postEvento
-GET     /evento/{id_evento}                     Eventos.getEvento
-GET     /eventos/org/{id_org}                   Eventos.getEventosOrg
 
 # Usuarios
 GET     /usuario/{id_usuario}                   Usuarios.getUsuario
+GET     /usuarios                               Usuarios.getUsuarios
 POST    /usuario                                Usuarios.postUsuario
 
-# Organizacoes
-GET     /organizacao/{id_organizacao}           Organizacoes.getOrganizacao
-POST    /organizacao                            Organizacoes.postOrganizacao
-
+# Perguntas
+GET     /perguntas                              Perguntas.getPerguntas
 # Login
-POST     /login                                  Login.login
-POST     /loginUser                              Login.loginUser
-POST     /loginOrg                               Login.loginOrg
+POST    /loginUser                              Login.loginUser
 
-# Ignore favicon requests
-#GET     /favicon.ico                            404
+# Amigo
+POST    /amigo/{id_requerente}/{id_destino}     Amigos.addAmigo
+GET     /amigo/{id_requerente}                  Amigos.getAmigos
 
-# Map static resources from the /app/public folder to the /public path
-#GET     /public/                                staticDir:public
+# Convite
+POST    /convite/{id_envio}/{id_recibo}         Convites.convidar
+GET     /convite/convites                       Convites.convites
+POST    /convite/aceitar/{id_envio}/{id_recibo} Convites.AceitarConvite
+POST    /convite/recusar/{id_envio}/{id_recibo} Convites.RecusarConvite
+POST    /convite/cancelar/{id_envio}/{id_recibo} Convites.CancelarConvite
+GET     /convite/status/{id_envio}/{id_recibo}  Convites.getStatusConvite
 
-# Catch all
-#*       /{controller}/{action}                  {controller}.{action}
+#jogo
+POST    /jogo/{id_envio}/{id_recibo}                                Jogos.novoJogo
+GET     /jogo/getJogo/{id_envio}/{id_recibo}                        Jogos.getJogo
+GET     /jogo/finalizar/{id_jogo}                                   Jogos.finalizar
+GET     /jogo/monitorar                                             Jogos.monitorar
+POST    /jogo/responder/{id_jogo}/{id_user}/{id_pergunta_resposta}  Jogos.responder
+
